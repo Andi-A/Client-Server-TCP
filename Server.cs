@@ -272,4 +272,40 @@ public class MultiIPEchoServer
 	}
 
 	
+	
+	public static void Main()
+	{
+		
+		
+		TcpListener listener = null;
+		try
+		{
+			ShowServerNetworkConfig();
+			listener = new TcpListener(IPAddress.Any, 8080);
+			listener.Start();
+			Console.WriteLine("MultiIPEchoServer started...");
+			while (true)
+			{
+				Console.WriteLine("Waiting for incoming client connections...");
+				TcpClient client = listener.AcceptTcpClient();
+				Console.WriteLine("Accepted new client connection...");
+				Thread t = new Thread(ProcessClientRequests);
+				t.Start(client);
+			}
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e);
+		}
+		finally
+		{
+			if (listener != null)
+			{
+				listener.Stop();
+			}
+		}
+	}
+}
+
+	
 
