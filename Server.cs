@@ -149,3 +149,60 @@ public class MultiIPEchoServer
 
 
 				}
+				else if (s.Equals("mkdir New") || s.Equals("mkdir new"))
+				{
+
+
+					try
+					{
+						using (Process p = new Process())
+						{
+							// set start info
+							p.StartInfo = new ProcessStartInfo("cmd.exe")
+							{
+								RedirectStandardInput = true,
+								UseShellExecute = false,
+								WorkingDirectory = @"C:\Users\Test\Documents\Test"
+							};
+
+
+							// start process
+							p.Start();
+
+							// send command to its input
+
+
+							p.StandardInput.Write("mkdir New" + p.StandardInput.NewLine);
+							p.StandardInput.Write("exit" + p.StandardInput.NewLine);
+
+							//wait
+							p.WaitForExit();
+						}
+					}
+
+
+					catch (Exception ex)
+					{
+						Console.WriteLine(ex);
+					}
+
+
+				}
+
+
+				else if (s.Equals("mkdir New1") || s.Equals("mkdir new1"))
+				{
+
+
+					try
+					{
+						using (Process p = new Process())
+						{
+							// set start info
+							p.StartInfo = new ProcessStartInfo("cmd.exe")
+							{
+								RedirectStandardInput = true,
+								UseShellExecute = false,
+								WorkingDirectory = @"C:\Users\Test\Documents\Test"
+							};
+
