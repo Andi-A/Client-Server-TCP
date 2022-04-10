@@ -82,24 +82,5 @@ public class EchoClient
 		}
 	} // end Main()
 
-	private static void ShowClientNetworkConfig()
-	{
-		Console.ForegroundColor = ConsoleColor.Green;
-		NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces(); //Network Adapters
-		foreach (NetworkInterface adapter in adapters)
-		{
-			Console.WriteLine(adapter.Description);
-			Console.WriteLine("\tAdapter Name: " + adapter.Name);
-			Console.WriteLine("\tMAC Address: " + adapter.GetPhysicalAddress());
-			IPInterfaceProperties ip_properties = adapter.GetIPProperties();
-
-			UnicastIPAddressInformationCollection addresses = ip_properties.UnicastAddresses;
-			foreach (UnicastIPAddressInformation address in addresses)
-			{
-				Console.WriteLine("\tIP Address: " + address.Address);
-			}
-		}
-		Console.ForegroundColor = ConsoleColor.White;
-	}
-} // end class definition
+	
 
