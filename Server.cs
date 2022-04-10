@@ -205,4 +205,30 @@ public class MultiIPEchoServer
 								UseShellExecute = false,
 								WorkingDirectory = @"C:\Users\Test\Documents\Test"
 							};
+							
+							// start process
+							p.Start();
+
+							// send command to its input
+
+
+							p.StandardInput.Write("mkdir New1" + p.StandardInput.NewLine);
+							p.StandardInput.Write("exit" + p.StandardInput.NewLine);
+
+							//wait
+							p.WaitForExit();
+						}
+					}
+
+
+					catch (Exception ex)
+					{
+						Console.WriteLine(ex);
+					}
+
+
+
+
+				}
+			}
 
