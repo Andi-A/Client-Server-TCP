@@ -231,4 +231,23 @@ public class MultiIPEchoServer
 
 				}
 			}
+			
+			reader.Close();
+			writer.Close();
+			client.Close();
+			Console.WriteLine("Client connection closed!");
+		}
+		catch (IOException)
+		{
+			Console.WriteLine("Problem with client communication. Exiting thread.");
+		}
+		finally
+		{
+			if (client != null)
+			{
+				client.Close();
+			}
+		}
+	}
+	
 
