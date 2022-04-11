@@ -77,6 +77,16 @@ public class MultiIPEchoServer
 
 				else if (s.Equals("Open Pershendetje.txt") || s.Equals("open Pershendetje.txt"))
 				{
+					string file = @"C:\Users\Test\Documents\Test\Pershendetje.txt";
+					if(File.Exists(file))
+					{
+					//Read all the content in one string
+					// and display the string
+					string str = File.ReadAllText(file);
+					writer.Write("Text from file : ");
+					write.WriteLine(str);
+						
+					}
 
 					try
 					{
@@ -115,6 +125,16 @@ public class MultiIPEchoServer
 
 				else if (s.Equals("Open Test.txt") || s.Equals("open Test.txt"))
 				{
+					string file = @"C:\Users\Test\Documents\Test\Test.txt";
+					if(File.Exists(file))
+					{
+					//Read all the content in one string
+					// and display the string
+					string str = File.ReadAllText(file);
+					writer.Write("Text from file : ");
+					write.WriteLine(str);
+						
+					}
 
 					try
 					{
@@ -188,9 +208,15 @@ public class MultiIPEchoServer
 
 
 				}
+				else if(else if (s.Equals("mkdir New1") || s.Equals("mkdir new1"))
+					{
+						write.WriteLine("Access Denied");
+						writer.Flush();
+					}
+						
 
 
-				else if (s.Equals("mkdir New1") || s.Equals("mkdir new1"))
+				else if (s.Equals("admin mkdir New1") || s.Equals("admin mkdir new1"))
 				{
 
 
